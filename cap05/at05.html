@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PWEB1 — Cap. 05 — AT05 — Formulário de Pesquisa Acadêmica</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.5;
+    }
+
+    fieldset {
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    small,
+    .erro {
+      color: #555;
+    }
+
+    .erro {
+      color: #c00;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    input,
+    select,
+    textarea {
+      max-width: 500px;
+      width: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+
+    .grupo-opcoes label {
+      display: block;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Pesquisa Acadêmica — Perfil e Satisfação dos Estudantes</h1>
+    <p><a href="../index.html">← Voltar para a página principal</a></p>
+  </header>
+
+  <main>
+
+    <p><strong>* Campos obrigatórios</strong></p>
+
+    <form
+      action="https://httpbin.org/post"
+      method="post"
+      novalidate>
+
+      <!-- ========================= -->
+      <!-- FIELDSET 1 -->
+      <!-- ========================= -->
+
+      <fieldset>
+        <legend>Perfil do Estudante</legend>
+
+        <label for="nome">
+          Nome completo <span aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          required
+          aria-required="true"
+          autocomplete="name"
+          minlength="5"
+          maxlength="100">
+
+        <label for="matricula">
+          Matrícula <span aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="matricula"
+          name="matricula"
+          required
+          aria-required="true"
+          pattern="\d{7}"
+          aria-describedby="ajuda-matricula">
+
+        <small id="ajuda-matricula">
+          Informe exatamente 7 dígitos numéricos.
+        </small>
+
+        <label for="email">
+          E-mail institucional <span aria-hidden="true">*</span>
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          aria-required="true"
+          aria-invalid="false"
+          aria-describedby="erro-email ajuda-email"
+          autocomplete="email"
+          pattern="[a-zA-Z0-9._%+\-]+@ifal\.edu\.br"
+          onblur="validarEmail(this)">
+
+        <small id="ajuda-email">
+          Utilize seu e-mail institucional do IFAL.
+        </small>
+
+        <p id="erro-email" class="erro" role="alert"></p>
+
+        <label for="periodo">
+          Período atual <span aria-hidden="true">*</span>
+        </label>
+
+        <select
+          id="periodo"
+          name="periodo"
+          required
+          aria-required="true">
+
+          <option value="">Selecione</option>
+          <option value="1">1º período</option>
+          <option value="2">2º período</option>
+          <option value="3">3º período</option>
+          <option value="4">4º período</option>
+          <option value="5">5º período</option>
+          <option value="6">6º período</option>
+          <option value="7">7º período</option>
+          <option value="8">8º período</option>
+        </select>
+
+        <fieldset>
+          <legend>Turno <span aria-hidden="true">*</span></legend>
+
+          <div class="grupo-opcoes">
+            <label>
+              <input
+                type="radio"
+                name="turno"
+                value="manha"
+                required>
+              Manhã
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="turno"
+                value="tarde">
+              Tarde
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="turno"
+                value="noite">
+              Noite
+            </label>
+          </div>
+        </fieldset>
+
+      </fieldset>
+
+      <!-- ========================= -->
+      <!-- FIELDSET 2 -->
+      <!-- ========================= -->
+
+      <fieldset>
+        <legend>Perfil Tecnológico</legend>
+
+        <fieldset>
+          <legend>Tecnologias que conhece</legend>
+
+          <div class="grupo-opcoes">
+            <label><input type="checkbox" name="tecnologias[]" value="html"> HTML</label>
+            <label><input type="checkbox" name="tecnologias[]" value="css"> CSS</label>
+            <label><input type="checkbox" name="tecnologias[]" value="javascript"> JavaScript</label>
+            <label><input type="checkbox" name="tecnologias[]" value="php"> PHP</label>
+            <label><input type="checkbox" name="tecnologias[]" value="java"> Java</label>
+            <label><input type="checkbox" name="tecnologias[]" value="python"> Python</label>
+            <label><input type="checkbox" name="tecnologias[]" value="sql"> SQL</label>
+            <label><input type="checkbox" name="tecnologias[]" value="git"> Git</label>
+          </div>
+        </fieldset>
+
+        <label for="linguagem">
+          Linguagem favorita
+        </label>
+
+        <select id="linguagem" name="linguagem">
+
+          <optgroup label="Paradigma Procedural">
+            <option value="c">C</option>
+          </optgroup>
+
+          <optgroup label="Paradigma Orientado a Objetos">
+            <option value="java">Java</option>
+            <option value="csharp">C#</option>
+            <option value="python">Python</option>
+          </optgroup>
+
+          <optgroup label="Paradigma Funcional">
+            <option value="haskell">Haskell</option>
+            <option value="elixir">Elixir</option>
+          </optgroup>
+
+        </select>
+
+        <label for="experiencia">
+          Anos de experiência com programação
+        </label>
+
+        <input
+          type="number"
+          id="experiencia"
+          name="experiencia"
+          min="0"
+          max="30">
+
+        <label for="portfolio">
+          URL do portfólio ou LinkedIn
+        </label>
+
+        <input
+          type="url"
+          id="portfolio"
+          name="portfolio"
+          placeholder="https://"
+          aria-describedby="ajuda-portfolio">
+
+        <small id="ajuda-portfolio">
+          Informe uma URL válida iniciando com https://
+        </small>
+
+      </fieldset>
+
+      <!-- ========================= -->
+      <!-- FIELDSET 3 -->
+      <!-- ========================= -->
+
+      <fieldset>
+        <legend>Avaliação da Disciplina</legend>
+
+        <label for="nota">
+          Nota para a disciplina:
+          <span id="valor-nota">5</span>/10
+        </label>
+
+        <input
+          type="range"
+          id="nota"
+          name="nota"
+          min="0"
+          max="10"
+          value="5"
+          oninput="document.getElementById('valor-nota').textContent = this.value">
+
+        <fieldset>
+          <legend>Satisfação com o material didático</legend>
+
+          <div class="grupo-opcoes">
+            <label><input type="radio" name="satisfacao" value="muito_satisfeito"> Muito satisfeito</label>
+            <label><input type="radio" name="satisfacao" value="satisfeito"> Satisfeito</label>
+            <label><input type="radio" name="satisfacao" value="neutro"> Neutro</label>
+            <label><input type="radio" name="satisfacao" value="insatisfeito"> Insatisfeito</label>
+            <label><input type="radio" name="satisfacao" value="muito_insatisfeito"> Muito insatisfeito</label>
+          </div>
+        </fieldset>
+
+        <label for="sugestoes">
+          Sugestões de melhoria
+        </label>
+
+        <textarea
+          id="sugestoes"
+          name="sugestoes"
+          rows="6"
+          maxlength="1000"></textarea>
+
+        <label for="data_preenchimento">
+          Data de preenchimento
+          <span aria-hidden="true">*</span>
+        </label>
+
+        <input
+          type="date"
+          id="data_preenchimento"
+          name="data_preenchimento"
+          required
+          aria-required="true">
+
+      </fieldset>
+
+      <!-- ========================= -->
+      <!-- FIELDSET 4 -->
+      <!-- ========================= -->
+
+      <fieldset>
+        <legend>Consentimento e Envio</legend>
+
+        <label>
+          <input
+            type="checkbox"
+            name="consentimento"
+            required
+            aria-required="true">
+
+          Autorizo o uso dos meus dados para fins acadêmicos.
+          <span aria-hidden="true">*</span>
+        </label>
+
+        <input
+          type="hidden"
+          name="pesquisa_id"
+          value="PWEB1-2026-1">
+
+        <br><br>
+
+        <button type="submit">
+          Enviar pesquisa
+        </button>
+
+        <button type="reset">
+          Limpar formulário
+        </button>
+
+      </fieldset>
+
+    </form>
+
+  </main>
+
+  <script>
+    function validarEmail(campo) {
+      const erro = document.getElementById('erro-email');
+
+      if (!campo.value.endsWith('@ifal.edu.br')) {
+        erro.textContent =
+          'Informe seu e-mail institucional (@ifal.edu.br)';
+        campo.setAttribute('aria-invalid', 'true');
+      } else {
+        erro.textContent = '';
+        campo.setAttribute('aria-invalid', 'false');
+      }
+    }
+
+    document.getElementById('data_preenchimento').max =
+      new Date().toISOString().split('T')[0];
+  </script>
+
+</body>
+</html>
