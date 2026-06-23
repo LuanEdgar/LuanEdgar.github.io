@@ -215,3 +215,40 @@ input[type="email"] {
 input[type="password"] {
   border: 2px solid #0d47a1;
 }
+/* Marcador antes dos links do menu */
+.menu ul a::before {
+  content: "› ";
+  color: #bbdefb;
+  font-weight: bold;
+}
+
+/* Asterisco de campo obrigatório */
+label::after {
+  content: " *";
+  color: #b71c1c;
+  font-weight: bold;
+}
+/* --------------------------------------------------
+   ESPECIFICIDADE - Exemplo de conflito
+   --------------------------------------------------
+
+   A regra ".botao" possui especificidade 0,0,1.
+
+   A regra ".cartao .botao" possui especificidade 0,0,2,
+   pois contém duas classes.
+
+   Portanto, quando um botão estiver dentro de um elemento
+   com classe ".cartao", a regra composta prevalecerá,
+   mesmo que a regra ".botao" apareça depois no arquivo.
+
+   O conflito é resolvido pela especificidade, sem usar
+   !important.
+*/
+
+.botao {
+  background-color: #1565c0;
+}
+
+.cartao .botao {
+  background-color: #0d47a1;
+}
