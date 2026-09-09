@@ -1,83 +1,117 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
-    <title>Sobre Mim</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Pessoal — Luan Edgar</title>
+
+  <link rel="stylesheet" href="estilo.css">
 </head>
-    <body>
 
-    <h2>Aluno:</h2>
-    <h1>Luan Edgar</h1>
-    <img src="minhafoto.jpg.jpg" width="300" height="200">
-    <h3>Turma: 921C</h3>
-    <h3>Curso: Desenvolvimento de Sistemas</h3>
-    <h3>Instituição: IFAL</h3>
+<body>
+  <div class="pagina">
 
-<h2>Características:</h2>
-    <p>Tenho 15 anos</p>
-    <p>Faço bastante esportes</p>
-    <p>Gosto de conversar bastante tipo conhecer todo mundo mesmo</p>
-    <p>me dedicando bastante aos estudos</p>
-    <p>Gosto de aprender varias coisas</p>
-    
-<h2>No Curso Estou Aprendendo:</h2>
-    <li>Programação Web</li>
-    <li>Fundamentos da Informática</li>
-    <li>Introdução a informática</li>
-    <p>Nos proximos anos serão adicionadas mais materias</p>
+    <!-- ====== CABEÇALHO ====== -->
+    <header class="cabecalho">
+      <h1>Luan Edgar</h1>
+      <p>Programador Estudantil · IFAL</p>
 
-<p><h2>Esse foi o meu Resumo</h2><h3>improvisei em algumas coisas pois não pude salvar o meu antigo trabalho.</h3></h3></p>
-   
-        <h1>Atividades Da Minha Pagina Pessoal</h1>
-     <nav aria-label="Atividades do Capítulo 4">
-  <h2>Capítulo 4 - Tabelas, Listas e Mídia</h2>
-  <ul>
-    <li> 
-        Atividade 1 - Tabela Básica
-      <a href="cap04/cap04-at01-tabela-basica.html">  Clique aqui para ver a atividade!!</a>
-    </li>
-    <li>
-       Atividade 2 - Tabela Semântica com Mesclagem
-      <a href="cap04/cap04-at02-tabela-semantica.html"> Clique aqui para ver a atividade!!</a>
-    </li>
-    <li>
-        Atividade 3 - Listas Avançadas e Glossário
-       <a href="cap04/cap04-at03-listas-avancadas.html"> Clique aqui para ver a atividade!!</a>
-    </li>
-    <li>
-        Atividade 4 - Página Multimídia
-      <a href="cap04/cap04-at04-multimidia.html"> Clique aqui para ver a atividade!!</a>
-    </li>     
-  <h2>Capítulo 5 - Formulários HTML</h2>
-  <ul>
-    <li> 
-        Atividade 1 - Formulario de Contato Simples
-      <a href="cap05/at01.html">  Clique aqui para ver a atividade!!</a>
-    </li>
-    <li>
-       Atividade 2 - Cadastro de Usuário
-      <a href="cap05/at02.html"> Clique aqui para ver a atividade!!</a>
-    </li>
-    <li>
-        Atividade 3 - Formulário de Matrícula Acadêmica
-       <a href="cap05/at03.html"> Clique aqui para ver a atividade!!</a>
-    </li>
-    <li>
-        Atividade 4 - Inscrição em Evento com Campos Avançados
-      <a href="cap05/at04.html"> Clique aqui para ver a atividade!!</a>
-    </li>  
-    <li>Atividade 5 - Formulário de Pesquisa Acadêmica</li>
-      <a href="cap05/at05.html"> Clique aqui para ver a atividade!!</a>
-  </ul>
-  <ul>
-    <h2>Capítulo 7 - Atividade Prática — Refatoração de Seletores e Unidades CSS</h2>
-    <a href="cap07/atv01.css"> Clique aqui para ver a atividade!!</a>
-    <h2> Atividades Em Dupla </h2>
-  </ul>
-  <ul>
-       <li>
-        Atividade em dupla css 01 em sala.
-      <a href="atividade-css01-sala/index.html"> Clique aqui para ver a atividade!!</a>
-    </li>
-  </ul>
-</nav>
-    </body>
+      <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+        <p>📱 (82) 99975-8108</p>
+        <p>📸 Instagram: @luanz1n10</p>
+      </nav>
+    </header>
+
+    <!-- ====== CONTEÚDO PRINCIPAL ====== -->
+    <main class="principal">
+
+      <section id="sobre" class="cartao">
+        <h2>Sobre mim</h2>
+
+        <p>
+          Meu nome é Luan, tenho 16 anos e estudo Desenvolvimento de Sistemas
+          no IFAL. Gosto bastante de Introdução à Informática, além de esportes
+          e jogos relacionados à esportes.
+        </p>
+      </section>
+
+      <section id="projetos" class="cartao">
+        <h2>Projetos</h2>
+
+        <div class="projetos">
+
+          <article class="projeto">
+            <h3>Projeto 1</h3>
+            <p>
+            
+            </p>
+          </article>
+
+          <article class="projeto">
+            <h3>Projeto 2</h3>
+            <p>
+
+            </p>
+          </article>
+
+          <article class="projeto">
+            <h3>Projeto 3</h3>
+            <p>
+         
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ====== BARRA LATERAL ====== -->
+    <aside class="lateral">
+
+      <section class="cartao">
+        <h2>Habilidades</h2>
+
+        <ul class="habilidades">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>CSS Grid</li>
+          <li>JavaScript</li>
+        </ul>
+      </section>
+
+      <section id="contato" class="cartao">
+        <h2>Contato</h2>
+
+        <ul class="contato">
+          <li>
+            ✉️
+            <a href="mailto:lemt1@aluno.ifal.edu.br">
+              lemt1@aluno.ifal.edu.br
+            </a>
+          </li>
+
+          <li>
+            🐙
+            <a href="https://github.com/luanedgar">
+              github.com/luanedgar
+            </a>
+          </li>
+        </ul>
+      </section>
+
+    </aside>
+
+    <!-- ====== RODAPÉ ====== -->
+    <footer class="rodape">
+      © 2026 Luan Edgar · feito com HTML + CSS Grid
+    </footer>
+
+  </div>
+</body>
+
 </html>
