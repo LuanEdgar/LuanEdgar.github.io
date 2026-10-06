@@ -1,118 +1,308 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Pessoal — Luan Edgar</title>
-
-  <link rel="stylesheet" href="estilo.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arena Sport</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+:root{--marca:#e30a2d;--marca-escura:#b80822;--preto:#222;--cinza:#6b6b6b;--claro:#f4f4f4;--amarelo:#ffd100}
+body{font-family:"Helvetica Neue",Arial,system-ui,sans-serif;color:var(--preto);background:#fff}
+.bg-marca{background:var(--marca)!important}
+.text-marca{color:var(--marca)!important}
+.btn-marca{background:var(--marca);color:#fff;border:0;border-radius:999px;font-weight:700;font-size:.8rem;padding:.6rem 1.1rem}
+.btn-marca:hover{background:var(--marca-escura);color:#fff}
+.topo-aviso{background:var(--preto);color:#fff;font-size:.75rem}
+header.bg-marca{padding:.9rem 0!important;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.logo{font-weight:900;font-size:1.6rem;letter-spacing:-1px;color:#fff;text-decoration:none}
+.logo span{font-weight:300}
+.busca{min-width:100%}
+.busca .form-control{border-radius:999px 0 0 999px!important;padding:.65rem 1.2rem;font-size:.9rem}
+.busca .btn{border-radius:0 999px 999px 0!important;background:#fff;color:var(--marca);font-weight:700;border:0;padding:0 1.3rem}
+@media(min-width:992px){.busca{min-width:0;max-width:640px}}
+header .btn-light{background:transparent;border:0;color:#fff;font-size:1.4rem}
+header .btn-light:hover{background:rgba(255,255,255,.2)}
+.cart-badge{font-size:.65rem;background:#fff!important;color:var(--marca)}
+nav.navbar.bg-dark{background:#fff!important;border-bottom:1px solid #e5e5e5}
+nav.navbar .nav-link{color:var(--preto)!important;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:.9rem 1rem!important;border-bottom:3px solid transparent}
+nav.navbar .nav-link:hover,nav.navbar .nav-link.active{color:var(--marca)!important;border-bottom-color:var(--marca)}
+nav.navbar .nav-link.text-warning{color:var(--marca)!important}
+nav.navbar .navbar-toggler{border-color:#ccc}
+nav.navbar .navbar-toggler-icon{filter:invert(1)}
+.dropdown-menu{border:0;border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.15)}
+.dropdown-item:hover{background:var(--claro);color:var(--marca)}
+.banner-slide{height:230px;display:flex;align-items:center;padding:0 10%;color:#fff}
+.banner-slide h2{font-weight:900;font-size:1.7rem;text-transform:uppercase;line-height:1.05}
+.banner-slide p{margin:.6rem 0 1rem;font-size:.95rem}
+.banner-slide .btn-light{background:#fff;color:var(--marca);border:0;border-radius:999px;font-size:.8rem;padding:.55rem 1.4rem}
+.slide1{background:linear-gradient(110deg,#e30a2d 40%,#8f0619)}
+.slide2{background:linear-gradient(110deg,#222 40%,#555)}
+.slide3{background:linear-gradient(110deg,#00a650 40%,#005c2b)}
+@media(min-width:992px){.banner-slide{height:360px}.banner-slide h2{font-size:3.1rem}.banner-slide p{font-size:1.2rem}}
+.faixa-relampago{background:var(--amarelo);color:var(--preto);font-size:.9rem}
+.tempo{background:var(--preto);color:#fff;padding:2px 8px;border-radius:4px;font-weight:700}
+.titulo-secao{font-weight:900;font-size:1.25rem;text-transform:uppercase;padding-bottom:.4rem}
+.titulo-secao::after{content:"";display:block;width:44px;height:4px;background:var(--marca);margin-top:.4rem}
+.text-center .titulo-secao::after{margin-left:auto;margin-right:auto}
+.categoria{border:0;background:transparent;text-decoration:none;color:var(--preto);text-align:center}
+.categoria .card-body{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:.5rem}
+.categoria span{font-size:.8rem;font-weight:700;text-transform:uppercase}
+.categoria:hover span{color:var(--marca)}
+.cat-circle{width:72px;height:72px;border-radius:50%;background:var(--claro);border:2px solid transparent;display:flex;align-items:center;justify-content:center;font-size:1.9rem;flex-shrink:0;transition:border-color .2s}
+.categoria:hover .cat-circle{border-color:var(--marca)}
+.marca-box{display:flex;align-items:center;justify-content:center;height:70px;background:var(--claro);border-radius:8px;font-weight:900;letter-spacing:3px;color:var(--preto);text-decoration:none;transition:.2s}
+.marca-box:hover{background:var(--preto);color:#fff}
+.card.produto{border:0;border-radius:8px;background:#fff;transition:box-shadow .2s}
+.card.produto:hover{box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.produto-foto{height:190px;background:var(--claro);border-radius:8px;overflow:hidden}
+.produto-foto img{width:100%;height:100%;object-fit:cover;transition:transform .25s}
+.card.produto:hover .produto-foto img{transform:scale(1.06)}
+.produto .card-body{padding:.8rem .2rem}
+.badge-promo{background:var(--marca);color:#fff;font-weight:800;font-size:.72rem;border-radius:4px}
+.marca-produto{font-size:.68rem;font-weight:800;letter-spacing:1px;color:var(--cinza)}
+.produto .card-title{font-size:.9rem;font-weight:600;margin-bottom:.3rem}
+.estrelas{color:#f5a623;font-size:.8rem}
+.estrelas small{color:var(--cinza)}
+.preco{font-size:1.4rem;font-weight:900}
+.produto .small.text-muted{font-size:.75rem!important}
+.promo-banner{height:150px;display:flex;flex-direction:column;justify-content:center;padding:0 8%;color:#fff;font-size:1.8rem;font-weight:900;line-height:1.05;text-transform:uppercase;text-decoration:none;border-radius:8px;transition:transform .2s}
+.promo-banner:hover{transform:translateY(-3px);color:#fff}
+.promo-banner small{font-size:.9rem;font-weight:600;text-transform:none}
+.promoA{background:linear-gradient(120deg,#222,#555)}
+.promoB{background:linear-gradient(120deg,#e30a2d,#8f0619)}
+section.bg-light{background:var(--claro)!important}
+section.bg-light strong{font-size:.9rem}
+section.bg-light .cat-circle{background:#fff}
+section form .form-control{border-radius:999px 0 0 999px;padding-left:1.2rem}
+section form .btn-marca{border-radius:0 999px 999px 0}
+.rodape{background:var(--preto);color:#fff}
+.rodape .collapse-btn{background:none;border:0;border-bottom:1px solid #3a3a3a;color:#fff;text-align:left;padding:.85rem 0;font-weight:800;font-size:.85rem;text-transform:uppercase;width:100%}
+.rodape a{color:#bdbdbd;text-decoration:none}
+.rodape a:hover{color:#fff;text-decoration:underline}
+.rodape li{margin-bottom:.35rem}
+.social{width:34px;height:34px;border-radius:50%;background:var(--marca);color:#fff!important;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800}
+.social:hover{background:#fff;color:var(--marca)!important}
+.pagto{width:48px;height:30px;background:#fff;color:var(--preto);font-size:.6rem;font-weight:700;border-radius:4px;display:flex;align-items:center;justify-content:center}
+@media(min-width:992px){.rodape .collapse-btn{pointer-events:none;border:0;padding:0 0 .5rem}.rodape .chevron{display:none}}
+</style>
 </head>
-
 <body>
-  <div class="pagina">
 
-    <!-- ====== CABEÇALHO ====== -->
-    <header class="cabecalho">
-      <h1>Luan Edgar</h1>
-      <p>Programador Estudantil · IFAL</p>
+<!-- Faixa de aviso -->
+<div class="topo-aviso text-center small py-1">Frete grátis acima de R$ 199 | Parcele em até 10x sem juros</div>
 
-      <nav>
-        <a href="#sobre">Sobre</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
-        <p>📱 (82) 99975-8108</p>
-        <p>📸 Instagram: @luanz1n10</p>
-      </nav>
-    </header>
-
-    <!-- ====== CONTEÚDO PRINCIPAL ====== -->
-    <main class="principal">
-
-      <section id="sobre" class="cartao">
-        <h2>Sobre mim</h2>
-
-        <p>
-          Meu nome é Luan, tenho 16 anos e estudo Desenvolvimento de Sistemas
-          no IFAL. Gosto bastante de Introdução à Informática, além de esportes
-          e jogos relacionados à esportes.
-        </p>
-      </section>
-
-      <section id="projetos" class="cartao">
-        <h2>Projetos</h2>
-
-        <div class="atividades">
-
-          <article class="atividade">
-            <h3>Capitulo 4</h3>
-            
-            <p>
-            
-            </p>
-          </article>
-
-          <article class="projeto">
-            <h3>Projeto 2</h3>
-            <p>
-
-            </p>
-          </article>
-
-          <article class="projeto">
-            <h3>Projeto 3</h3>
-            <p>
-         
-            </p>
-          </article>
-
-        </div>
-      </section>
-
-    </main>
-
-    <!-- ====== BARRA LATERAL ====== -->
-    <aside class="lateral">
-
-      <section class="cartao">
-        <h2>Habilidades</h2>
-
-        <ul class="habilidades">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>CSS Grid</li>
-          <li>JavaScript</li>
-        </ul>
-      </section>
-
-      <section id="contato" class="cartao">
-        <h2>Contato</h2>
-
-        <ul class="contato">
-          <li>
-            ✉️
-            <a href="mailto:lemt1@aluno.ifal.edu.br">
-              lemt1@aluno.ifal.edu.br
-            </a>
-          </li>
-
-          <li>
-            🐙
-            <a href="https://github.com/luanedgar">
-              github.com/luanedgar
-            </a>
-          </li>
-        </ul>
-      </section>
-
-    </aside>
-
-    <!-- ====== RODAPÉ ====== -->
-    <footer class="rodape">
-      © 2026 Luan Edgar · feito com HTML + CSS Grid
-    </footer>
-
+<!-- Cabeçalho -->
+<header class="bg-marca py-2 sticky-top">
+  <div class="container d-flex align-items-center gap-2 gap-lg-4 flex-wrap">
+    <a class="logo" href="#">ARENA<span>SPORT</span></a>
+    <form class="busca d-flex order-3 order-lg-0 flex-grow-1" role="search">
+      <input class="form-control rounded-end-0 border-0" type="search" placeholder="Buscar produtos..." aria-label="Buscar">
+      <button class="btn btn-dark rounded-start-0" type="submit">Buscar</button>
+    </form>
+    <a href="#" class="btn btn-light position-relative ms-auto ms-lg-0" aria-label="Carrinho">🛒
+      <span class="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill">0</span>
+    </a>
   </div>
-</body>
+</header>
 
+<!-- Barra de categorias -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-0">
+  <div class="container">
+    <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-label="Abrir menu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categorias</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#categorias">Futebol</a></li>
+            <li><a class="dropdown-item" href="#categorias">Corrida</a></li>
+            <li><a class="dropdown-item" href="#categorias">Academia</a></li>
+            <li><a class="dropdown-item" href="#categorias">Basquete</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">Masculino</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Feminino</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Infantil</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Marcas</a></li>
+        <li class="nav-item"><a class="nav-link text-warning fw-bold" href="#destaques">Ofertas</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Carrossel -->
+<div id="banners" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#banners" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#banners" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#banners" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active"><div class="banner-slide slide1"><div><h2>Semana do Futebol</h2><p>Chuteiras e camisas com até 40% OFF</p><a href="#destaques" class="btn btn-light fw-bold">Comprar agora</a></div></div></div>
+    <div class="carousel-item"><div class="banner-slide slide2"><div><h2>Corra mais longe</h2><p>Tênis de corrida a partir de R$ 199</p><a href="#destaques" class="btn btn-light fw-bold">Ver tênis</a></div></div></div>
+    <div class="carousel-item"><div class="banner-slide slide3"><div><h2>Treino em casa</h2><p>Kits de academia com frete grátis</p><a href="#destaques" class="btn btn-light fw-bold">Aproveitar</a></div></div></div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#banners" data-bs-slide="prev"><span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span><span class="visually-hidden">Anterior</span></button>
+  <button class="carousel-control-next" type="button" data-bs-target="#banners" data-bs-slide="next"><span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span><span class="visually-hidden">Próximo</span></button>
+</div>
+
+<!-- Faixa de ofertas relâmpago -->
+<div class="faixa-relampago py-2">
+  <div class="container d-flex justify-content-center align-items-center gap-2 flex-wrap text-center">
+    <strong>⚡ OFERTAS RELÂMPAGO</strong><span>terminam em</span>
+    <span class="tempo">08</span>:<span class="tempo">45</span>:<span class="tempo">12</span>
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- Categorias -->
+  <section id="categorias" class="py-4">
+    <h2 class="titulo-secao mb-3">Compre por esporte</h2>
+    <div class="row g-2 g-lg-3">
+      <div class="col-4 col-lg-2"><a href="#" class="card categoria h-100"><div class="card-body"><div class="cat-circle">⚽</div><span>Futebol</span></div></a></div>
+      <div class="col-4 col-lg-2"><a href="#" class="card categoria h-100"><div class="card-body"><div class="cat-circle">🏃</div><span>Corrida</span></div></a></div>
+      <div class="col-4 col-lg-2"><a href="#" class="card categoria h-100"><div class="card-body"><div class="cat-circle">🏋️</div><span>Academia</span></div></a></div>
+      <div class="col-4 col-lg-2"><a href="#" class="card categoria h-100"><div class="card-body"><div class="cat-circle">🏀</div><span>Basquete</span></div></a></div>
+      <div class="col-4 col-lg-2"><a href="#" class="card categoria h-100"><div class="card-body"><div class="cat-circle">🚴</div><span>Ciclismo</span></div></a></div>
+      <div class="col-4 col-lg-2"><a href="#" class="card categoria h-100"><div class="card-body"><div class="cat-circle">🏊</div><span>Natação</span></div></a></div>
+    </div>
+  </section>
+
+  <!-- Marcas -->
+  <section class="pb-4">
+    <h2 class="titulo-secao mb-3">Marcas em destaque</h2>
+    <div class="row g-2">
+      <div class="col-4 col-lg-2"><a href="#" class="marca-box">VELOX</a></div>
+      <div class="col-4 col-lg-2"><a href="#" class="marca-box">TRIBO</a></div>
+      <div class="col-4 col-lg-2"><a href="#" class="marca-box">ATLAS</a></div>
+      <div class="col-4 col-lg-2"><a href="#" class="marca-box">NOVA</a></div>
+      <div class="col-4 col-lg-2"><a href="#" class="marca-box">PRIME</a></div>
+      <div class="col-4 col-lg-2"><a href="#" class="marca-box">ONDA</a></div>
+    </div>
+  </section>
+
+  <!-- Destaques -->
+  <section id="destaques" class="pb-4">
+    <div class="d-flex justify-content-between align-items-baseline mb-3">
+      <h2 class="titulo-secao mb-0">Ofertas em destaque</h2>
+      <a href="#" class="small text-marca fw-bold d-none d-lg-inline">Ver todas</a>
+    </div>
+    <div class="row g-3">
+      <div class="col-6 col-lg-3">
+        <div class="card produto h-100">
+          <div class="position-relative"><span class="badge badge-promo position-absolute top-0 start-0 m-2">30% OFF</span><div class="produto-foto"><img src="img/tenis.jpg" alt="Tênis Corrida Pro"></div></div>
+          <div class="card-body">
+            <div class="marca-produto">VELOX</div>
+            <h3 class="h6 card-title">Tênis Corrida Pro</h3>
+            <div class="estrelas">★★★★★ <small>(128)</small></div>
+            <div class="small text-muted text-decoration-line-through">R$ 399,90</div>
+            <div class="preco">R$ 279,90</div>
+            <div class="small text-muted mb-2">ou 10x de R$ 28,00</div>
+            <button class="btn btn-marca btn-sm w-100">Adicionar ao carrinho</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card produto h-100">
+          <div class="produto-foto"><img src="img/camisa.jpg" alt="Camisa Dry Fit"></div>
+          <div class="card-body">
+            <div class="marca-produto">TRIBO</div>
+            <h3 class="h6 card-title">Camisa Dry Fit</h3>
+            <div class="estrelas">★★★★☆ <small>(64)</small></div>
+            <div class="preco mt-4">R$ 89,90</div>
+            <div class="small text-muted mb-2">ou 3x de R$ 29,97</div>
+            <button class="btn btn-marca btn-sm w-100">Adicionar ao carrinho</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card produto h-100">
+          <div class="position-relative"><span class="badge badge-promo position-absolute top-0 start-0 m-2">25% OFF</span><div class="produto-foto"><img src="img/bola.jpg" alt="Bola de Campo Oficial"></div></div>
+          <div class="card-body">
+            <div class="marca-produto">ATLAS</div>
+            <h3 class="h6 card-title">Bola de Campo Oficial</h3>
+            <div class="estrelas">★★★★★ <small>(212)</small></div>
+            <div class="small text-muted text-decoration-line-through">R$ 159,90</div>
+            <div class="preco">R$ 119,90</div>
+            <div class="small text-muted mb-2">ou 4x de R$ 29,97</div>
+            <button class="btn btn-marca btn-sm w-100">Adicionar ao carrinho</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card produto h-100">
+          <div class="produto-foto"><img src="img/mochila.jpg" alt="Mochila Esportiva"></div>
+          <div class="card-body">
+            <div class="marca-produto">NOVA</div>
+            <h3 class="h6 card-title">Mochila Esportiva</h3>
+            <div class="estrelas">★★★★☆ <small>(41)</small></div>
+            <div class="preco mt-4">R$ 149,90</div>
+            <div class="small text-muted mb-2">ou 5x de R$ 29,98</div>
+            <button class="btn btn-marca btn-sm w-100">Adicionar ao carrinho</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banners promocionais -->
+  <section class="pb-4">
+    <div class="row g-3">
+      <div class="col-12 col-lg-6"><a href="#" class="promo-banner promoA">Moda fitness<br><small>até 50% OFF</small></a></div>
+      <div class="col-12 col-lg-6"><a href="#" class="promo-banner promoB">Chuteiras<br><small>a partir de R$ 129</small></a></div>
+    </div>
+  </section>
+</main>
+
+<!-- Benefícios -->
+<section class="bg-light py-4">
+  <div class="container">
+    <div class="row g-3 text-center">
+      <div class="col-12 col-lg-4 d-flex align-items-center gap-3 justify-content-center"><div class="cat-circle">🚚</div><strong>Entrega para todo o Brasil</strong></div>
+      <div class="col-12 col-lg-4 d-flex align-items-center gap-3 justify-content-center"><div class="cat-circle">🔒</div><strong>Pagamento seguro</strong></div>
+      <div class="col-12 col-lg-4 d-flex align-items-center gap-3 justify-content-center"><div class="cat-circle">🔄</div><strong>Troca grátis em 30 dias</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="py-4 text-center">
+  <div class="container">
+    <h2 class="titulo-secao mb-3">Receba nossas ofertas</h2>
+    <form class="d-flex justify-content-center mx-auto" style="max-width:420px" onsubmit="event.preventDefault();alert('Cadastro realizado!');">
+      <input type="email" class="form-control rounded-end-0" placeholder="seu e-mail" aria-label="E-mail" required>
+      <button class="btn btn-marca rounded-start-0" type="submit">Assinar</button>
+    </form>
+  </div>
+</section>
+
+<!-- Rodapé -->
+<footer class="rodape pt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-3">
+        <button class="collapse-btn d-flex justify-content-between" data-bs-toggle="collapse" data-bs-target="#f1">Institucional <span class="chevron">▾</span></button>
+        <div id="f1" class="collapse d-lg-block pb-3"><ul class="list-unstyled small mb-0"><li><a href="#">Sobre nós</a></li><li><a href="#">Trabalhe conosco</a></li><li><a href="#">Política de privacidade</a></li></ul></div>
+      </div>
+      <div class="col-12 col-lg-3">
+        <button class="collapse-btn d-flex justify-content-between" data-bs-toggle="collapse" data-bs-target="#f2">Ajuda <span class="chevron">▾</span></button>
+        <div id="f2" class="collapse d-lg-block pb-3"><ul class="list-unstyled small mb-0"><li><a href="#">Perguntas frequentes</a></li><li><a href="#">Trocas e devoluções</a></li><li><a href="#">Fale conosco</a></li></ul></div>
+      </div>
+      <div class="col-12 col-lg-3">
+        <button class="collapse-btn d-flex justify-content-between" data-bs-toggle="collapse" data-bs-target="#f3">Redes sociais <span class="chevron">▾</span></button>
+        <div id="f3" class="collapse d-lg-block pb-3"><div class="d-flex gap-2"><a href="#" class="social" aria-label="Instagram">IG</a><a href="#" class="social" aria-label="Facebook">FB</a><a href="#" class="social" aria-label="X">X</a><a href="#" class="social" aria-label="YouTube">YT</a></div></div>
+      </div>
+      <div class="col-12 col-lg-3">
+        <button class="collapse-btn d-flex justify-content-between" data-bs-toggle="collapse" data-bs-target="#f4">Formas de pagamento <span class="chevron">▾</span></button>
+        <div id="f4" class="collapse d-lg-block pb-3"><div class="d-flex gap-2"><div class="pagto">VISA</div><div class="pagto">MC</div><div class="pagto">PIX</div><div class="pagto">BOLETO</div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center small border-top border-secondary py-3 mt-3">© 2026 Arena Sport — CNPJ 00.000.000/0001-00</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
