@@ -6,84 +6,560 @@
 <title>Arena Sport</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
-:root{--marca:#e30a2d;--marca-escura:#b80822;--preto:#222;--cinza:#6b6b6b;--claro:#f4f4f4;--amarelo:#ffd100}
-body{font-family:"Helvetica Neue",Arial,system-ui,sans-serif;color:var(--preto);background:#fff}
-.bg-marca{background:var(--marca)!important}
-.text-marca{color:var(--marca)!important}
-.btn-marca{background:var(--marca);color:#fff;border:0;border-radius:999px;font-weight:700;font-size:.8rem;padding:.6rem 1.1rem}
-.btn-marca:hover{background:var(--marca-escura);color:#fff}
-.topo-aviso{background:var(--preto);color:#fff;font-size:.75rem}
-header.bg-marca{padding:.9rem 0!important;box-shadow:0 2px 6px rgba(0,0,0,.15)}
-.logo{font-weight:900;font-size:1.6rem;letter-spacing:-1px;color:#fff;text-decoration:none}
-.logo span{font-weight:300}
-.busca{min-width:100%}
-.busca .form-control{border-radius:999px 0 0 999px!important;padding:.65rem 1.2rem;font-size:.9rem}
-.busca .btn{border-radius:0 999px 999px 0!important;background:#fff;color:var(--marca);font-weight:700;border:0;padding:0 1.3rem}
-@media(min-width:992px){.busca{min-width:0;max-width:640px}}
-header .btn-light{background:transparent;border:0;color:#fff;font-size:1.4rem}
-header .btn-light:hover{background:rgba(255,255,255,.2)}
-.cart-badge{font-size:.65rem;background:#fff!important;color:var(--marca)}
-nav.navbar.bg-dark{background:#fff!important;border-bottom:1px solid #e5e5e5}
-nav.navbar .nav-link{color:var(--preto)!important;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:.9rem 1rem!important;border-bottom:3px solid transparent}
-nav.navbar .nav-link:hover,nav.navbar .nav-link.active{color:var(--marca)!important;border-bottom-color:var(--marca)}
-nav.navbar .nav-link.text-warning{color:var(--marca)!important}
-nav.navbar .navbar-toggler{border-color:#ccc}
-nav.navbar .navbar-toggler-icon{filter:invert(1)}
-.dropdown-menu{border:0;border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.15)}
-.dropdown-item:hover{background:var(--claro);color:var(--marca)}
-.banner-slide{height:230px;display:flex;align-items:center;padding:0 10%;color:#fff}
-.banner-slide h2{font-weight:900;font-size:1.7rem;text-transform:uppercase;line-height:1.05}
-.banner-slide p{margin:.6rem 0 1rem;font-size:.95rem}
-.banner-slide .btn-light{background:#fff;color:var(--marca);border:0;border-radius:999px;font-size:.8rem;padding:.55rem 1.4rem}
-.slide1{background:linear-gradient(110deg,#e30a2d 40%,#8f0619)}
-.slide2{background:linear-gradient(110deg,#222 40%,#555)}
-.slide3{background:linear-gradient(110deg,#00a650 40%,#005c2b)}
-@media(min-width:992px){.banner-slide{height:360px}.banner-slide h2{font-size:3.1rem}.banner-slide p{font-size:1.2rem}}
-.faixa-relampago{background:var(--amarelo);color:var(--preto);font-size:.9rem}
-.tempo{background:var(--preto);color:#fff;padding:2px 8px;border-radius:4px;font-weight:700}
-.titulo-secao{font-weight:900;font-size:1.25rem;text-transform:uppercase;padding-bottom:.4rem}
-.titulo-secao::after{content:"";display:block;width:44px;height:4px;background:var(--marca);margin-top:.4rem}
-.text-center .titulo-secao::after{margin-left:auto;margin-right:auto}
-.categoria{border:0;background:transparent;text-decoration:none;color:var(--preto);text-align:center}
-.categoria .card-body{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:.5rem}
-.categoria span{font-size:.8rem;font-weight:700;text-transform:uppercase}
-.categoria:hover span{color:var(--marca)}
-.cat-circle{width:72px;height:72px;border-radius:50%;background:var(--claro);border:2px solid transparent;display:flex;align-items:center;justify-content:center;font-size:1.9rem;flex-shrink:0;transition:border-color .2s}
-.categoria:hover .cat-circle{border-color:var(--marca)}
-.marca-box{display:flex;align-items:center;justify-content:center;height:70px;background:var(--claro);border-radius:8px;font-weight:900;letter-spacing:3px;color:var(--preto);text-decoration:none;transition:.2s}
-.marca-box:hover{background:var(--preto);color:#fff}
-.card.produto{border:0;border-radius:8px;background:#fff;transition:box-shadow .2s}
-.card.produto:hover{box-shadow:0 6px 20px rgba(0,0,0,.15)}
-.produto-foto{height:190px;background:var(--claro);border-radius:8px;overflow:hidden}
-.produto-foto img{width:100%;height:100%;object-fit:cover;transition:transform .25s}
-.card.produto:hover .produto-foto img{transform:scale(1.06)}
-.produto .card-body{padding:.8rem .2rem}
-.badge-promo{background:var(--marca);color:#fff;font-weight:800;font-size:.72rem;border-radius:4px}
-.marca-produto{font-size:.68rem;font-weight:800;letter-spacing:1px;color:var(--cinza)}
-.produto .card-title{font-size:.9rem;font-weight:600;margin-bottom:.3rem}
-.estrelas{color:#f5a623;font-size:.8rem}
-.estrelas small{color:var(--cinza)}
-.preco{font-size:1.4rem;font-weight:900}
-.produto .small.text-muted{font-size:.75rem!important}
-.promo-banner{height:150px;display:flex;flex-direction:column;justify-content:center;padding:0 8%;color:#fff;font-size:1.8rem;font-weight:900;line-height:1.05;text-transform:uppercase;text-decoration:none;border-radius:8px;transition:transform .2s}
-.promo-banner:hover{transform:translateY(-3px);color:#fff}
-.promo-banner small{font-size:.9rem;font-weight:600;text-transform:none}
-.promoA{background:linear-gradient(120deg,#222,#555)}
-.promoB{background:linear-gradient(120deg,#e30a2d,#8f0619)}
-section.bg-light{background:var(--claro)!important}
-section.bg-light strong{font-size:.9rem}
-section.bg-light .cat-circle{background:#fff}
-section form .form-control{border-radius:999px 0 0 999px;padding-left:1.2rem}
-section form .btn-marca{border-radius:0 999px 999px 0}
-.rodape{background:var(--preto);color:#fff}
-.rodape .collapse-btn{background:none;border:0;border-bottom:1px solid #3a3a3a;color:#fff;text-align:left;padding:.85rem 0;font-weight:800;font-size:.85rem;text-transform:uppercase;width:100%}
-.rodape a{color:#bdbdbd;text-decoration:none}
-.rodape a:hover{color:#fff;text-decoration:underline}
-.rodape li{margin-bottom:.35rem}
-.social{width:34px;height:34px;border-radius:50%;background:var(--marca);color:#fff!important;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800}
-.social:hover{background:#fff;color:var(--marca)!important}
-.pagto{width:48px;height:30px;background:#fff;color:var(--preto);font-size:.6rem;font-weight:700;border-radius:4px;display:flex;align-items:center;justify-content:center}
-@media(min-width:992px){.rodape .collapse-btn{pointer-events:none;border:0;padding:0 0 .5rem}.rodape .chevron{display:none}}
+/* ========================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+======================================== */
+:root {
+    --marca: #e30a2d;
+    --marca-escura: #b80822;
+    --preto: #222;
+    --cinza: #6b6b6b;
+    --claro: #f4f4f4;
+    --amarelo: #ffd100;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, system-ui, sans-serif;
+    color: var(--preto);
+    background: #fff;
+}
+
+/* ========================================
+   2. CORES E BOTÕES GERAIS
+======================================== */
+.bg-marca {
+    background: var(--marca) !important;
+}
+
+.text-marca {
+    color: var(--marca) !important;
+}
+
+.btn-marca {
+    background: var(--marca);
+    color: #fff;
+    border: 0;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: .8rem;
+    padding: .6rem 1.1rem;
+}
+
+.btn-marca:hover {
+    background: var(--marca-escura);
+    color: #fff;
+}
+
+/* ========================================
+   3. FAIXA DE AVISO SUPERIOR
+======================================== */
+.topo-aviso {
+    background: var(--preto);
+    color: #fff;
+    font-size: .75rem;
+}
+
+/* ========================================
+   4. CABEÇALHO E LOGOTIPO
+======================================== */
+header.bg-marca {
+    padding: .9rem 0 !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 1.6rem;
+    letter-spacing: -1px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo span {
+    font-weight: 300;
+}
+
+header .btn-light {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+header .btn-light:hover {
+    background: rgba(255, 255, 255, .2);
+}
+
+.cart-badge {
+    font-size: .65rem;
+    background: #fff !important;
+    color: var(--marca);
+}
+
+/* ========================================
+   5. CAMPO DE BUSCA
+======================================== */
+.busca {
+    min-width: 100%;
+}
+
+.busca .form-control {
+    border-radius: 999px 0 0 999px !important;
+    padding: .65rem 1.2rem;
+    font-size: .9rem;
+}
+
+.busca .btn {
+    border-radius: 0 999px 999px 0 !important;
+    background: #fff;
+    color: var(--marca);
+    font-weight: 700;
+    border: 0;
+    padding: 0 1.3rem;
+}
+
+/* ========================================
+   6. MENU DE NAVEGAÇÃO (NAVBAR)
+======================================== */
+nav.navbar.bg-dark {
+    background: #fff !important;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+nav.navbar .nav-link {
+    color: var(--preto) !important;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    padding: .9rem 1rem !important;
+    border-bottom: 3px solid transparent;
+}
+
+nav.navbar .nav-link:hover,
+nav.navbar .nav-link.active {
+    color: var(--marca) !important;
+    border-bottom-color: var(--marca);
+}
+
+nav.navbar .nav-link.text-warning {
+    color: var(--marca) !important;
+}
+
+nav.navbar .navbar-toggler {
+    border-color: #ccc;
+}
+
+nav.navbar .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.dropdown-menu {
+    border: 0;
+    border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .15);
+}
+
+.dropdown-item:hover {
+    background: var(--claro);
+    color: var(--marca);
+}
+
+/* ========================================
+   7. CAROUSEL E BANNERS PRINCIPAIS
+======================================== */
+.banner-slide {
+    height: 230px;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    color: #fff;
+}
+
+.banner-slide h2 {
+    font-weight: 900;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    line-height: 1.05;
+}
+
+.banner-slide p {
+    margin: .6rem 0 1rem;
+    font-size: .95rem;
+}
+
+.banner-slide .btn-light {
+    background: #fff;
+    color: var(--marca);
+    border: 0;
+    border-radius: 999px;
+    font-size: .8rem;
+    padding: .55rem 1.4rem;
+}
+
+.slide1 {
+    background: linear-gradient(110deg, #e30a2d 40%, #8f0619);
+}
+
+.slide2 {
+    background: linear-gradient(110deg, #222 40%, #555);
+}
+
+.slide3 {
+    background: linear-gradient(110deg, #00a650 40%, #005c2b);
+}
+
+/* ========================================
+   8. FAIXA DE OFERTAS RELÂMPAGO
+======================================== */
+.faixa-relampago {
+    background: var(--amarelo);
+    color: var(--preto);
+    font-size: .9rem;
+}
+
+.tempo {
+    background: var(--preto);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+/* ========================================
+   9. TÍTULOS DAS SEÇÕES
+======================================== */
+.titulo-secao {
+    font-weight: 900;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    padding-bottom: .4rem;
+}
+
+.titulo-secao::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 4px;
+    background: var(--marca);
+    margin-top: .4rem;
+}
+
+.text-center .titulo-secao::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========================================
+   10. CATEGORIAS DE ESPORTES
+======================================== */
+.categoria {
+    border: 0;
+    background: transparent;
+    text-decoration: none;
+    color: var(--preto);
+    text-align: center;
+}
+
+.categoria .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+    padding: .5rem;
+}
+
+.categoria span {
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.categoria:hover span {
+    color: var(--marca);
+}
+
+.cat-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--claro);
+    border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+    flex-shrink: 0;
+    transition: border-color .2s;
+}
+
+.categoria:hover .cat-circle {
+    border-color: var(--marca);
+}
+
+/* ========================================
+   11. MARCAS EM DESTAQUE
+======================================== */
+.marca-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    background: var(--claro);
+    border-radius: 8px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--preto);
+    text-decoration: none;
+    transition: .2s;
+}
+
+.marca-box:hover {
+    background: var(--preto);
+    color: #fff;
+}
+
+/* ========================================
+   12. CARDS DE PRODUTOS
+======================================== */
+.card.produto {
+    border: 0;
+    border-radius: 8px;
+    background: #fff;
+    transition: box-shadow .2s;
+}
+
+.card.produto:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
+}
+
+.produto-foto {
+    height: 190px;
+    background: var(--claro);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.produto-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .25s;
+}
+
+.card.produto:hover .produto-foto img {
+    transform: scale(1.06);
+}
+
+.produto .card-body {
+    padding: .8rem .2rem;
+}
+
+.badge-promo {
+    background: var(--marca);
+    color: #fff;
+    font-weight: 800;
+    font-size: .72rem;
+    border-radius: 4px;
+}
+
+.marca-produto {
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--cinza);
+}
+
+.produto .card-title {
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: .3rem;
+}
+
+.estrelas {
+    color: #f5a623;
+    font-size: .8rem;
+}
+
+.estrelas small {
+    color: var(--cinza);
+}
+
+.preco {
+    font-size: 1.4rem;
+    font-weight: 900;
+}
+
+.produto .small.text-muted {
+    font-size: .75rem !important;
+}
+
+/* ========================================
+   13. BANNERS PROMOCIONAIS
+======================================== */
+.promo-banner {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8%;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1.05;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform .2s;
+}
+
+.promo-banner:hover {
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+.promo-banner small {
+    font-size: .9rem;
+    font-weight: 600;
+    text-transform: none;
+}
+
+.promoA {
+    background: linear-gradient(120deg, #222, #555);
+}
+
+.promoB {
+    background: linear-gradient(120deg, #e30a2d, #8f0619);
+}
+
+/* ========================================
+   14. SEÇÃO DE BENEFÍCIOS
+======================================== */
+section.bg-light {
+    background: var(--claro) !important;
+}
+
+section.bg-light strong {
+    font-size: .9rem;
+}
+
+section.bg-light .cat-circle {
+    background: #fff;
+}
+
+/* ========================================
+   15. NEWSLETTER
+======================================== */
+section form .form-control {
+    border-radius: 999px 0 0 999px;
+    padding-left: 1.2rem;
+}
+
+section form .btn-marca {
+    border-radius: 0 999px 999px 0;
+}
+
+/* ========================================
+   16. RODAPÉ
+======================================== */
+.rodape {
+    background: var(--preto);
+    color: #fff;
+}
+
+.rodape .collapse-btn {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #3a3a3a;
+    color: #fff;
+    text-align: left;
+    padding: .85rem 0;
+    font-weight: 800;
+    font-size: .85rem;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.rodape a {
+    color: #bdbdbd;
+    text-decoration: none;
+}
+
+.rodape a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.rodape li {
+    margin-bottom: .35rem;
+}
+
+/* ========================================
+   17. REDES SOCIAIS E PAGAMENTOS
+======================================== */
+.social {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--marca);
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .7rem;
+    font-weight: 800;
+}
+
+.social:hover {
+    background: #fff;
+    color: var(--marca) !important;
+}
+
+.pagto {
+    width: 48px;
+    height: 30px;
+    background: #fff;
+    color: var(--preto);
+    font-size: .6rem;
+    font-weight: 700;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================================
+   18. RESPONSIVIDADE PARA COMPUTADORES
+======================================== */
+@media (min-width: 992px) {
+    .busca {
+        min-width: 0;
+        max-width: 640px;
+    }
+
+    .banner-slide {
+        height: 360px;
+    }
+
+    .banner-slide h2 {
+        font-size: 3.1rem;
+    }
+
+    .banner-slide p {
+        font-size: 1.2rem;
+    }
+
+    .rodape .collapse-btn {
+        pointer-events: none;
+        border: 0;
+        padding: 0 0 .5rem;
+    }
+
+    .rodape .chevron {
+        display: none;
+    }
+}
 </style>
 </head>
 <body>
